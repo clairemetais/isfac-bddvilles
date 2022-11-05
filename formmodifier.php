@@ -1,6 +1,6 @@
 <!-- Mettre en place un fonctionnement pour pouvoir modifier le code postal d’une ville -->
 <?php
-require_once('stringconnect.php');
+require_once('bdd.php');
 
 $id=$_GET['modifier'];
 

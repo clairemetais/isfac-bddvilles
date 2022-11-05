@@ -5,61 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/c20989b72b.js" crossorigin="anonymous"></script>
-        <style>
-            body{
-                width:1200px;
-                margin:0 auto;
-            }
-            table {
-                table-layout: fixed;
-                width: 80%;
-                border-collapse: collapse;
-                border: 1px solid black;
-                }
-            th, td {
-                text-align:center;
-                border: 1px solid black;
-            }
-            thead{
-                background-color:#dea02d;
-            }
-            tbody tr:nth-child(odd) {
-            background-color: #c4dc74;
-            }
-
-            tbody tr:nth-child(even) {
-            background-color: #e0f0cd;
-            }
-            input{
-                border-radius:15px;
-                margin-bottom : 15px;
-                line-height:30px;
-            }
-            form{
-                margin-top:20px;
-            }
-            fieldset{
-                display:inline;
-            }
-            fieldset{
-                background-color:#e6f1ca;
-                border-radius:15px;
-            }
-            legend{
-                font-size:16px;
-                font-weight:bold;
-                margin-bottom:15px;
-            }
-            
-
-           
-        </style>
+        <link rel="stylesheet" href="style.css">
         <title>tableau</title>
     </head>
     <body> 
         
     <?php
-     require_once('stringconnect.php'); 
+     require_once('bbd.php'); 
      ?>
 
 <!-- 2)creer un formulaire d'incription avec le nom de la ville et le n°du departement pour ajouter une ville  -->

@@ -2,7 +2,7 @@
  <?php
 
 // connexion a la base de donnée
-require_once('stringconnect.php');
+require_once('bdd.php');
 
 $id=$_GET['supprimer'];
 

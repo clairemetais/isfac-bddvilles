@@ -1,6 +1,6 @@
 <!-- Créer un formulaire d’inscription (ville, département) et insérer cette nouvelle ville dans cette table. -->
 <?php
-require_once('stringconnect.php');
+require_once('bdd.php');
 
 $ville=$_GET["ville"];
 $departement=$_GET['departement'];

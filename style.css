@@ -1,0 +1,49 @@
+body{
+    width:1200px;
+    margin:0 auto;
+}
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 1px solid black;
+    }
+th, td {
+    text-align:center;
+    border: 1px solid black;
+}
+thead{
+    background-color:#dea02d;
+}
+tbody tr:nth-child(odd) {
+background-color: #c4dc74;
+}
+
+tbody tr:nth-child(even) {
+background-color: #e0f0cd;
+}
+th :nth-child(4){
+    width:40px;
+}
+td:nth-child(4){
+    width:40px;
+}
+input{
+    border-radius:15px;
+    margin-bottom : 15px;
+    line-height:30px;
+}
+form{
+    margin-top:20px;
+}
+fieldset{
+    display:inline;
+}
+fieldset{
+    background-color:#e6f1ca;
+    border-radius:15px;
+}
+legend{
+    font-size:16px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
