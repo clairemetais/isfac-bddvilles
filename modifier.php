@@ -1,15 +1,13 @@
 <!-- Mettre en place un fonctionnement pour pouvoir modifier le code postal d’une ville -->
-<head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://kit.fontawesome.com/c20989b72b.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="style.css">
-        <title>tableau</title>
-    </head>
+
 <?php
 require_once('bdd.php');
 
+if(!isset($_GET['ville']) || !isset($_GET['codepostal'])){
+    if(empty($_GET['ville'])||($_GET['codepostal'])){
+    echo "Merci de saisir un nom de ville ainsi qu'un code postal";
+    }
+}
 $id=$_GET['id'];
 $ville=$_GET['ville'];
 $codepostal=$_GET['codepostal'];

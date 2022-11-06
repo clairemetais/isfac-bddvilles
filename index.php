@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://kit.fontawesome.com/c20989b72b.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="style.css">
-        <title>tableau</title>
-    </head>
+  
     <body> 
         <header>   
             <?php
@@ -22,7 +15,7 @@
                 <label for="ville">Ville : </label>
                 <input type="text" name="ville" id="ville" placeholder="nom de la ville" required><br>
                 <label for="departement">Département : </label>
-                <input type="number" name="departement" id="departement" placeholder="N° de departement"required minlength="2" maxlength="3"><br>
+                <input type="number" name="departement" id="departement" placeholder="N° de departement" required><br>
                 <input type="submit" value="AJOUTER" width="30px">
                 </fieldset> 
             </form> 
@@ -40,8 +33,18 @@
                 </tr>
             </thead>
             <tbody>
-              <?php
-                $query="SELECT ville_nom,ville_code_postal,ville_id FROM villes_france_free" ;
+                 <?php 
+                 // on determine le nombre de lignes de la base de données qu'on affecte comme le nombre d'id total puis on execute la requete
+                 $sql="SELECT COUNT(*) AS nbredeville FROM villes_france_free";
+                $query=$bdd->query($sql);
+        //  on recupere le nbre de ligne grace a fetch
+                $result= $query->fetch();
+                $nbredeville=(int) $result['nbredeville'];
+        // on determine le nombre de resultat /page et le numero de page du debut
+                $parpage=10;
+                $curentpage=1;
+             // recuperer ce qu'on veut qu'il affiche par nombre d'articles.Ici 10. 0=point de depart, 10 = incrementation
+                $query="SELECT ville_nom,ville_code_postal,ville_id FROM villes_france_free ORDER BY ville_nom LIMIT ".(($curentpage-1)*$parpage).",$parpage" ;
                 $reponse=$bdd->query($query);
                 foreach ($reponse as $value) {?>
                     <tr> 
@@ -57,10 +60,28 @@
                             <i class="fa-regular fa-pen-to-square" style="color:black;"></i></a></td> 
                     </tr> 
                 <?php
-                }?>    
-                    
+                }?>           
             </tbody>
         </table> 
+        <footer>
+        <?php             
+        // on calcule le nbre de page en totalité(ceil permet d'arrondir au nbre superieur)
+            $nbredepage=ceil($nbredeville/$parpage);
+
+            If(isset($_GET['p']) && $_GET['p']>0 && $_GET['p']<$nbredepage){
+                $curentpage=$_GET['p'];
+            }else{
+                $curentpage=1;
+            }
+        // mise en place de la pagination
+            for ($i=1; $i <=$nbredepage ; $i++) { 
+                if ($i===$curentpage){
+                    echo "$i";
+                }
+                echo "<a href=\"index.php?p=$i\">/$i/</a>";
+            }
+        ?>
+        </footer>   
     </body>
 </html>
 
