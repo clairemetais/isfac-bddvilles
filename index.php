@@ -11,7 +11,7 @@
     <body> 
         <header>   
             <?php
-            require_once('bbd.php'); 
+            require_once('bdd.php'); 
             ?>
 
         <!-- 2)creer un formulaire d'incription avec le nom de la ville et le n°du departement pour ajouter une ville  -->
@@ -19,11 +19,11 @@
             <form action="ajouter.php" method="Get">
                 <fieldset>
                     <legend>Formulaire d'inscription</legend>
-                <label for="ville">Ville</label>
-                <input type="text" name="ville" id="ville" placeholder="nom de la ville" ><br>
-                <label for="departement">departement</label>
-                <input type="number" name="departement" id="departement" placeholder="numero de departement"><br>
-                <input type="submit" value="AJOUTER">
+                <label for="ville">Ville : </label>
+                <input type="text" name="ville" id="ville" placeholder="nom de la ville" required><br>
+                <label for="departement">Département : </label>
+                <input type="number" name="departement" id="departement" placeholder="N° de departement"required minlength="2" maxlength="3"><br>
+                <input type="submit" value="AJOUTER" width="30px">
                 </fieldset> 
             </form> 
         </header>
